@@ -16,7 +16,7 @@ const joinUs = async (req, res) => {
       });
       const mailOptions = {
         from: "harshitclub@gmail.com", // sender address
-        to: "ishika.jaiswal@3alearningsolutions.com", // list of receivers
+        to: "gautamharshit41@gmail.com", // list of receivers
         subject: "3a Learning Solutions Join Us Information", // Subject line
         html: `<html>
                 <body>
@@ -47,17 +47,17 @@ const joinUs = async (req, res) => {
   const { name, email, phone, address, role, message } = req.body;
   if (!name || !email || !phone || !address || !role || !message) {
     res.status(422).json({ error: "Fill All The Details" });
+  } else {
+    sendJoinUsInfo(
+      req.body.name,
+      req.body.email,
+      req.body.phone,
+      req.body.address,
+      req.body.role,
+      req.body.message
+    );
+    res.status(201).json({ status: "201" });
   }
-
-  sendJoinUsInfo(
-    req.body.name,
-    req.body.email,
-    req.body.phone,
-    req.body.address,
-    req.body.role,
-    req.body.message
-  );
-  res.status(201).json({ status: "201" });
 };
 
 module.exports = joinUs;

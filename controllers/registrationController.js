@@ -22,7 +22,7 @@ const registration = async (req, res) => {
       });
       const mailOptions = {
         from: "harshitclub@gmail.com", // sender address
-        to: "ishika.jaiswal@3alearningsolutions.com", // list of receivers
+        to: "gautamharshit41@gmail.com", // list of receivers
         subject: "3a Learning Solutions Program Registration Information", // Subject line
         html: `<html>
                     <body>
@@ -53,17 +53,17 @@ const registration = async (req, res) => {
   const { name, email, phone, program, company, location } = req.body;
   if (!name || !email || !phone || !program || !company || !location) {
     res.status(422).json({ error: "Fill All The Details" });
+  } else {
+    sendJoinUsInfo(
+      req.body.name,
+      req.body.email,
+      req.body.phone,
+      req.body.program,
+      req.body.company,
+      req.body.location
+    );
+    res.status(201).json({ status: "201" });
   }
-
-  sendJoinUsInfo(
-    req.body.name,
-    req.body.email,
-    req.body.phone,
-    req.body.program,
-    req.body.company,
-    req.body.location
-  );
-  res.status(201).json({ status: "201" });
 };
 
 module.exports = registration;

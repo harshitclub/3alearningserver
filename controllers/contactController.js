@@ -44,10 +44,15 @@ const contact = async (req, res) => {
   const { name, email, phone, message } = req.body;
   if (!name || !email || !phone || !message) {
     res.status(422).json({ error: "Fill All The Details" });
+  } else {
+    sendContact(
+      req.body.name,
+      req.body.email,
+      req.body.phone,
+      req.body.message
+    );
+    res.status(201).json({ status: "201" });
   }
-
-  sendContact(req.body.name, req.body.email, req.body.phone, req.body.message);
-  res.status(201).json({ status: "201" });
 };
 
 module.exports = contact;
