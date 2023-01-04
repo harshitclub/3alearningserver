@@ -16,7 +16,7 @@ const contact = async (req, res) => {
       });
       const mailOptions = {
         from: "harshitclub@gmail.com", // sender address
-        to: "ishika.jaiswal@3alearningsolutions.com", // list of receivers
+        to: "gautamharshit41@gmail.com", // list of receivers
         subject: "3a Learning Solutions Contact Page", // Subject line
         html: `<html>
                 <body>
