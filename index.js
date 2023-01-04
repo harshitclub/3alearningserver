@@ -14,6 +14,10 @@ app.get("/", (req, res) => {
   res.send("3a Learning Solutions Server is Working!");
 });
 
+app.post("/check", (req, res) => {
+  res.send("hello this is post request");
+});
+
 app.listen(PORT, () => {
   console.log(`Server Started on Port ${PORT}`);
 });
